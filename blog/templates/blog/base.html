@@ -20,9 +20,12 @@
         <a href="{% url 'post_draft_list' %}" class="top-menu">
             <i class="bi bi-pencil-square"></i>
         </a>
+        <form method="post" action="{% url 'logout' %}" class="top-menu">
+            {% csrf_token %}
+            <button type="submit" class="btn">Logout</button>
+        </form>
         <p class="top-menu">
-            Hello {{ user.username }} 
-            <small><a href="{% url 'logout' %}">Logout</a></small>
+            Hello {{ user.username }}
         </p>
         {% else %}
         <a href="{% url 'login' %}" class="top-menu">
